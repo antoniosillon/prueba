@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import { RANKS, DISCORD_URL } from './constants';
-import RankCard from './components/RankCard';
-import { Rank } from './types';
+import { RANKS, DISCORD_URL } from './constants.tsx';
+import RankCard from './components/RankCard.tsx';
+import { Rank } from './types.ts';
 
 const App: React.FC = () => {
   const [selectedRank, setSelectedRank] = useState<Rank | null>(null);
@@ -148,32 +148,33 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Discord Banner Section */}
-        <div className="mt-20 p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-[#5865F2]/20 via-[#0d1629] to-[#0a1120] border border-[#5865F2]/20 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
-          {/* Decorative background element */}
-          <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none transform rotate-12 scale-150">
-             <svg className="w-64 h-64 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419z"/></svg>
-          </div>
+        {/* Discord Banner Section - FIX APPLIED */}
+        <div className="mt-20 relative rounded-[2rem] overflow-hidden bg-[#0d1629] border border-blue-600/20 group">
+          {/* Background Gradient & Mesh */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-transparent opacity-50" />
           
-          <div className="flex flex-col gap-4 relative z-10 text-center md:text-left">
-            <h3 className="text-3xl font-black text-white uppercase italic tracking-tighter">
-              ¿NECESITAS AYUDA?
-            </h3>
-            <p className="text-gray-400 font-medium max-w-md">
-              Únete a nuestro servidor de Discord para soporte instantáneo, sorteos y noticias de la comunidad.
-            </p>
-          </div>
+          <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+             <div className="text-center md:text-left space-y-4 max-w-xl">
+               <h3 className="text-3xl md:text-4xl font-black text-white italic uppercase tracking-tighter">
+                 ¿NECESITAS AYUDA?
+               </h3>
+               <p className="text-gray-300 font-medium text-lg">
+                 Únete a nuestro servidor de Discord para soporte instantáneo, sorteos y noticias de la comunidad.
+               </p>
+             </div>
 
-          <a 
-            href={DISCORD_URL} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="relative z-10 bg-[#5865F2] hover:bg-[#4752c4] text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest shadow-xl shadow-[#5865F2]/20 transition-all hover:scale-105 active:scale-95 flex items-center gap-3 shrink-0"
-          >
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419z"/></svg>
-            UNIRSE A DISCORD
-          </a>
+             <a 
+               href={DISCORD_URL}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="bg-[#5865F2] hover:bg-[#4752c4] text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest shadow-xl flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
+             >
+               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                 <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057c2.053 1.508 4.041 2.423 5.993 3.03a.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 9.669 9.669 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 1 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028c1.961-.607 3.95-1.522 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.086-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.419 0 1.333-.946 2.419-2.157 2.419z"/>
+               </svg>
+               UNIRSE A DISCORD
+             </a>
+          </div>
         </div>
       </main>
 

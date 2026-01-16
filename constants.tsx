@@ -1,5 +1,5 @@
 
-import { Rank } from './types';
+import { Rank } from './types.ts';
 
 export const RANKS: Rank[] = [
   {

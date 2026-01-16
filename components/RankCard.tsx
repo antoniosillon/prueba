@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Rank } from '../types';
+import { Rank } from '../types.ts';
 
 interface RankCardProps {
   rank: Rank;
